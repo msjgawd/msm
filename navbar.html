@@ -1,0 +1,129 @@
+<html>
+<head>
+	<title>Navbar</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var headerheight = $('#header').outerHeight();
+		var navbarheight = $('#navbar').outerHeight();
+		$(window).scroll(function(){
+			if ($(window).scrollTop() > headerheight) {
+				$('#navbar').addClass('fixed').css('top','0');
+				$('#navbarplaceholder').removeClass('phinactive');
+			} else {
+				$('#navbar').removeClass('fixed');
+				$('#navbarplaceholder').addClass('phinactive');
+			}
+			/*['#page1', '#page2', '#page3', '#page4', '#page5']*/
+			//console.log(navbarheight);we
+			/*if ($('#page1').offset().top - $(window).scrollTop() < navbarheight) {
+				console.log('yes');
+				console.log($('#page1').offset().top - $(window).scrollTop());
+				$('#page1').addClass('fixed');
+				$('#page1').css('top', navbarheight-1);
+				$('#placeholder1').css('top', navbarheight-1);
+			} else {
+				console.log('no');
+				console.log($('#page1').offset().top - $(window).scrollTop());
+				$('#page1').removeClass('fixed');
+			}*/
+			/*console.log($('#page2').offset().top - $(window).scrollTop());
+			$('.scrollpage').each(function (index) {
+				if ($(this).offset().top - $(window).scrollTop() < navbarheight) {
+					console.log(index);
+					$(this).addClass('fixed').css('top', navbarheight);
+				} else {
+					$(this).removeClass('fixed');
+				}
+			})*/
+		})
+	})
+	</script>
+	<style>
+	body {
+		padding:0;
+		margin:0;
+	}
+	div.navbar {
+		/*position: fixed;*/
+		/*top:0;*/
+		left:0;
+		height: 50px;
+		background-color: #f0f0f0;
+		border-bottom-style: solid;
+		border-bottom-color: #e1e1e1;
+		border-bottom-width: 1px;
+		right:0;
+		padding-left:100px;
+	}
+	div.navbarplaceholder {
+		left:0;
+		height: 50px;
+		right:0;
+	}
+	ul {
+		padding:0;
+		margin:0;
+		list-style-type: none;
+		height:100%;
+		width:100%;
+	}
+	a:link, a:visited {
+		text-align: center;
+		text-decoration: none;
+		display: flex;
+		flex-direction:column;
+		justify-content:center;
+		align-content:center;
+		float:left;
+		width: 100px;
+		height: 100%;
+		color:#333;
+	}
+	a:hover, a:active {
+		background-color: #e1e1e1;
+		color:#000000;
+	}
+	.fixed {
+		position:fixed;
+	}
+	.phinactive {
+		display: none;
+	}
+	div.bigthing {
+		height:20em;
+		width:100%;
+	}
+	div.scrollpage {
+		z-index:-1;
+	}
+	.center {
+		display: flex;
+		flex-direction:column;
+		align-content: center;
+		justify-content: center;
+		text-align: center;
+	}
+	.placeholder {
+		z-index:-2;
+	}
+	</style>
+</head>
+<body>
+	<div id="header" style="height:300px; width:100%; background-color:#00ff00;"></div>
+	<div class="navbar" id="navbar">
+		<ul>
+			<li><a href="#Home">Home</a></li>
+			<li><a href="#Page1">Page 1</a></li>
+			<li><a href="#Page2">Page 2</a></li>
+		</ul>
+	</div>
+	<div id="navbarplaceholder" class="navbarplaceholder placeholder phinactive"></div>
+	<div id="page1" class="bigthing scrollpage center" style="background-color:#ff0000;"><h1>hi</h1></div>
+	<div id="placeholder1" class="bigthing placeholder phinactive" style=""></div>
+	<div id="page2" class="bigthing scrollpage" style="background-color:#aa0000;"></div>
+	<div id="page3" class="bigthing scrollpage" style="background-color:#550000;"></div>
+	<div id="page4" class="bigthing scrollpage" style="background-color:#330000;"></div>
+	<div id="page5" class="bigthing scrollpage" style="background-color:#220000;"></div>
+</body>
+</html>
